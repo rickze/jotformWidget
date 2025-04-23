@@ -1,7 +1,6 @@
+from modules import criar_equipamentos
 import streamlit as st
 from streamlit_option_menu import option_menu
-
-from modules import criar_equipamentos
 
 st.set_page_config(page_title="Gestão de Equipamentos", layout="wide")
 
