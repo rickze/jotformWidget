@@ -1,0 +1,9 @@
+[
+    {
+        "codigo": "01",
+        "externo": false,
+        "inicio": 2000,
+        "fim": 9999999,
+        "proximo": 2000
+    }
+]
