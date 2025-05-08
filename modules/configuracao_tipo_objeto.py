@@ -1,3 +1,4 @@
+
 import streamlit as st
 import json
 from pathlib import Path
@@ -8,14 +9,12 @@ TIPOS_FILE = CONFIG_PATH / "tipos_objeto.json"
 
 st.title("📋 Configuração dos Tipos de Equipamento")
 
-# Carregar ou inicializar dados
 if TIPOS_FILE.exists():
     with open(TIPOS_FILE, "r", encoding="utf-8") as f:
         tipos = json.load(f)
 else:
     tipos = []
 
-# Mostrar lista base à esquerda
 tipos_df = pd.DataFrame(tipos)
 if not tipos_df.empty:
     tipos_df = tipos_df[["codigo", "descricao", "stocks"]]
@@ -23,7 +22,6 @@ if not tipos_df.empty:
 st.sidebar.subheader("Lista de Tipos de Equipamento")
 st.sidebar.dataframe(tipos_df, use_container_width=True)
 
-# Selecionar tipo para edição ou criar novo
 st.sidebar.markdown("---")
 codigos = [t["codigo"] for t in tipos]
 selecao = st.sidebar.selectbox("Selecionar código existente ou criar novo", ["Novo"] + codigos)
@@ -47,7 +45,6 @@ if selecao == "Novo":
 else:
     tipo = next((t for t in tipos if t["codigo"] == selecao), None)
 
-# Interface à direita com todos os campos
 st.subheader("📌 Edição do Tipo de Equipamento")
 col1, col2 = st.columns([2, 3])
 
@@ -69,9 +66,8 @@ with col2:
     tipo["gestao"]["faturacao_atividade"] = st.checkbox("Doc. Atividade", value=tipo["gestao"].get("faturacao_atividade", False))
     tipo["gestao"]["planeado"] = st.radio("Pode ser planeado", ["Sim", "Não"], index=0 if tipo["gestao"].get("planeado", True) else 1) == "Sim"
 
-# Guardar alterações
 if st.button("💾 Guardar Tipo de Equipamento"):
-    tipos = [t for t in tipos if t["codigo"] != tipo["codigo"]]  # remove se já existir
+    tipos = [t for t in tipos if t["codigo"] != tipo["codigo"]]
     tipos.append(tipo)
     with open(TIPOS_FILE, "w", encoding="utf-8") as f:
         json.dump(tipos, f, indent=4, ensure_ascii=False)
