@@ -1,4 +1,4 @@
-from modules import criar_equipamentos, configuracao_tipo_objeto
+from modules import criar_equipamentos
 import streamlit as st
 from streamlit_option_menu import option_menu
 
@@ -16,17 +16,18 @@ menu_topo = option_menu(
 if menu_topo == "Home":
     st.sidebar.header("⚙️ Configurações")
     config_secao = st.sidebar.radio("Área:", ["Equipamentos", "Manutenção", "Destinatários"])
-        if config_secao == "Equipamentos":
-            st.sidebar.write("- Categorias")
-            st.sidebar.write("- Tipo de Objeto")
-            st.sidebar.write("- Classificação (Classes)")
-            st.sidebar.write("- Abate de equipamento")
-            st.sidebar.write("- Tipo Tração")
-            st.sidebar.write("- Contadores")
-            st.sidebar.write("- Gestão de campos")
+    if config_secao == "Equipamentos":
+        st.sidebar.write("- Categorias")
+        st.sidebar.write("- Tipo de Objeto")
+        st.sidebar.write("- Classificação (Classes)")
+        st.sidebar.write("- Abate de equipamento")
+        st.sidebar.write("- Tipo Tração")
+        st.sidebar.write("- Contadores")
+        st.sidebar.write("- Gestão de campos")
     elif config_secao == "Manutenção":
         st.sidebar.write("- Tipos de Planos")
     elif config_secao == "Destinatários":
+        st.sidebar.write("- Tipo de destinatário")
 
 elif menu_topo == "Equipamentos":
     st.sidebar.header("📦 Gestão de Equipamentos")
