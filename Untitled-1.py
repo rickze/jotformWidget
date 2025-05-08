@@ -28,12 +28,16 @@ if menu_topo == "Home":
         ])
         if submenu == "Tipo de Objeto":
             configuracao_tipo_objeto.show()
+        elif submenu == "Categorias":
+            st.info("[Placeholder] Configuração: Categorias")
         else:
             st.info(f"[Placeholder] Configuração: {submenu}")
     elif config_secao == "Manutenção":
-        st.sidebar.write("- Tipos de Planos")
+        submenu = st.sidebar.radio("Opção:", ["Tipos de Planos"])
+        st.info(f"[Placeholder] Configuração: {submenu}")
     elif config_secao == "Destinatários":
-        st.sidebar.write("- Tipo de destinatário")
+        submenu = st.sidebar.radio("Opção:", ["Tipo de destinatário"])
+        st.info(f"[Placeholder] Configuração: {submenu}")
 
 elif menu_topo == "Equipamentos":
     st.sidebar.header("📦 Gestão de Equipamentos")
