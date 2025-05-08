@@ -34,10 +34,10 @@ if menu_topo == "Home":
 #            "Contadores",
 #            "Gestão de campos"
 #        ])
-        if submenu == "Tipo de Objeto":
-            configuracao_tipo_objeto.show()
-        else:
-            st.info(f"[Placeholder] Configuração: {submenu}")
+#        if submenu == "Tipo de Objeto":
+#            configuracao_tipo_objeto.show()
+#        else:
+#            st.info(f"[Placeholder] Configuração: {submenu}")
     elif config_secao == "Manutenção":
         st.sidebar.write("- Tipos de Planos")
     elif config_secao == "Destinatários":
