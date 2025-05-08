@@ -56,16 +56,52 @@ def show():
     
     with col2:
         st.markdown("### Preenchimento automático da aba Gestão")
-        tipo["gestao"]["tipo_gestao"] = st.text_input("Tipo de Gestão", value=tipo["gestao"].get("tipo_gestao", ""))
-        tipo["gestao"]["unidade"] = st.text_input("Unidade Básica", value=tipo["gestao"].get("unidade", ""))
-        tipo["gestao"]["propriedade"] = st.text_input("Tipo de Propriedade", value=tipo["gestao"].get("propriedade", ""))
+        tipo["gestao"]["tipo_gestao"] = st.text_input(
+            "Tipo de Gestão",
+            value=tipo["gestao"].get("tipo_gestao", ""),
+            key="tipo_gestao_input"
+        )
+        tipo["gestao"]["unidade"] = st.text_input(
+            "Unidade Básica",
+            value=tipo["gestao"].get("unidade", ""),
+            key="unidade_input"
+        )
+        tipo["gestao"]["propriedade"] = st.text_input(
+            "Tipo de Propriedade",
+            value=tipo["gestao"].get("propriedade", ""),
+            key="propriedade_input"
+        )
+        
         st.markdown("**Documentos Permitidos**")
-        tipo["gestao"]["doc_envio"] = st.checkbox("Doc. Envio", value=tipo["gestao"].get("doc_envio", False))
-        tipo["gestao"]["doc_atividade"] = st.checkbox("Doc. Atividade", value=tipo["gestao"].get("doc_atividade", False))
+        tipo["gestao"]["doc_envio"] = st.checkbox(
+            "Doc. Envio",
+            value=tipo["gestao"].get("doc_envio", False),
+            key="doc_envio_checkbox"
+        )
+        tipo["gestao"]["doc_atividade"] = st.checkbox(
+            "Doc. Atividade",
+            value=tipo["gestao"].get("doc_atividade", False),
+            key="doc_atividade_checkbox"
+        )
+        
         st.markdown("**Tipo de Faturação**")
-        tipo["gestao"]["faturacao_mobilizacao"] = st.checkbox("Doc. p/mobilização", value=tipo["gestao"].get("faturacao_mobilizacao", False))
-        tipo["gestao"]["faturacao_atividade"] = st.checkbox("Doc. Atividade", value=tipo["gestao"].get("faturacao_atividade", False))
-        tipo["gestao"]["planeado"] = st.radio("Pode ser planeado", ["Sim", "Não"], index=0 if tipo["gestao"].get("planeado", True) else 1) == "Sim"
+        tipo["gestao"]["faturacao_mobilizacao"] = st.checkbox(
+            "Doc. p/mobilização",
+            value=tipo["gestao"].get("faturacao_mobilizacao", False),
+            key="faturacao_mobilizacao_checkbox"
+        )
+        tipo["gestao"]["faturacao_atividade"] = st.checkbox(
+            "Doc. Atividade (Faturação)",
+            value=tipo["gestao"].get("faturacao_atividade", False),
+            key="faturacao_atividade_checkbox"
+        )
+        
+        tipo["gestao"]["planeado"] = st.radio(
+            "Pode ser planeado",
+            ["Sim", "Não"],
+            index=0 if tipo["gestao"].get("planeado", True) else 1,
+            key="planeado_radio"
+        ) == "Sim"
     
     if st.button("💾 Guardar Tipo de Equipamento"):
         tipos = [t for t in tipos if t["codigo"] != tipo["codigo"]]
