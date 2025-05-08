@@ -2,7 +2,9 @@ from modules import criar_equipamentos, configuracao_tipo_objeto
 import streamlit as st
 from streamlit_option_menu import option_menu
 
-st.set_page_config(page_title="Gestão de Equipamentos", layout="wide")
+if "page_configured" not in st.session_state:
+    st.set_page_config(page_title="Gestão de Equipamentos", layout="wide")
+    st.session_state.page_configured = True
 
 # Menu de topo com ícones
 menu_topo = option_menu(
@@ -27,7 +29,8 @@ if menu_topo == "Home":
             "Gestão de campos"
         ])
         if submenu == "Tipo de Objeto":
-            configuracao_tipo_objeto.show()
+            with st.container():
+                configuracao_tipo_objeto.show()
         elif submenu == "Categorias":
             st.info("[Placeholder] Configuração: Categorias")
         else:
