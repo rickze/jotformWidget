@@ -16,7 +16,7 @@ menu_topo = option_menu(
 if menu_topo == "Home":
     st.sidebar.header("⚙️ Configurações")
     config_secao = st.sidebar.radio("Área:", ["Equipamentos", "Manutenção", "Destinatários"])
-    if config_secao == "Equipamentos":
+        if config_secao == "Equipamentos":
         st.sidebar.write("- Categorias")
         st.sidebar.write("- Tipo de Objeto")
         st.sidebar.write("- Classificação (Classes)")
@@ -24,24 +24,9 @@ if menu_topo == "Home":
         st.sidebar.write("- Tipo Tração")
         st.sidebar.write("- Contadores")
         st.sidebar.write("- Gestão de campos")
-#    if config_secao == "Equipamentos":
-#        submenu = st.sidebar.radio("Opção:", [
-#            "Categorias",
-#            "Tipo de Objeto",
-#            "Classificação (Classes)",
-#            "Abate de equipamento",
-#            "Tipo Tração",
-#            "Contadores",
-#            "Gestão de campos"
-#        ])
-#        if submenu == "Tipo de Objeto":
-#            configuracao_tipo_objeto.show()
-#        else:
-#            st.info(f"[Placeholder] Configuração: {submenu}")
     elif config_secao == "Manutenção":
         st.sidebar.write("- Tipos de Planos")
     elif config_secao == "Destinatários":
-        st.sidebar.write("- Tipo de destinatário")
 
 elif menu_topo == "Equipamentos":
     st.sidebar.header("📦 Gestão de Equipamentos")
