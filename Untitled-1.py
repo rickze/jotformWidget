@@ -18,7 +18,7 @@ if menu_topo == "Home":
     config_secao = st.sidebar.radio("Área:", ["Equipamentos", "Manutenção", "Destinatários"])
     if config_secao == "Equipamentos":
         st.sidebar.write("- Categorias")
-#        st.sidebar.write("- Tipo de Objeto")
+        st.sidebar.write("- Tipo de Objeto")
         st.sidebar.write("- Classificação (Classes)")
         st.sidebar.write("- Abate de equipamento")
         st.sidebar.write("- Tipo Tração")
