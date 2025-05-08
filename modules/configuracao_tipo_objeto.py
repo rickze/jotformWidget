@@ -4,10 +4,11 @@ import json
 from pathlib import Path
 import pandas as pd
 
-CONFIG_PATH = Path("config")
-TIPOS_FILE = CONFIG_PATH / "tipos_objeto.json"
+def show():
+    CONFIG_PATH = Path("config")
+    TIPOS_FILE = CONFIG_PATH / "tipos_objeto.json"
 
-st.title("📋 Configuração dos Tipos de Equipamento")
+    st.title("📋 Configuração dos Tipos de Equipamento")
 
 if TIPOS_FILE.exists():
     with open(TIPOS_FILE, "r", encoding="utf-8") as f:
