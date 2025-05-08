@@ -1,4 +1,4 @@
-from modules import criar_equipamentos
+from modules import criar_equipamentos, configuracao_tipo_objeto
 import streamlit as st
 from streamlit_option_menu import option_menu
 
