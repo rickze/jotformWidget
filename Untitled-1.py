@@ -9,8 +9,8 @@ if "page_configured" not in st.session_state:
 # Menu de topo com ícones
 menu_topo = option_menu(
     menu_title=None,
-    options=["Home", "Equipamentos", "Destinatários", "Manutenção"],
-    icons=["house", "truck", "building", "wrench"],
+    options=["Home", "Equipamentos", "Destinatários", "Manutenção", "Relatórios"],
+    icons=["house", "truck", "building", "wrench", "report"],
     orientation="horizontal"
 )
 
@@ -41,6 +41,10 @@ if menu_topo == "Home":
     elif config_secao == "Destinatários":
         submenu = st.sidebar.radio("Opção:", ["Tipo de destinatário"])
         st.info(f"[Placeholder] Configuração: {submenu}")
+    elif config_secao == "Relatórios":
+        submenu = st.sidebar.radio("Opção:", ["Resumo de horas"])
+        st.info(f"[Placeholder] Configuração: {submenu}")
+        
 
 elif menu_topo == "Equipamentos":
     st.sidebar.header("📦 Gestão de Equipamentos")
@@ -69,3 +73,7 @@ elif menu_topo == "Manutenção":
     st.sidebar.header("🛠️ Gestão de Manutenção")
     submenu = st.sidebar.radio("Plano:", ["Criar Plano de manutenção", "Criar Nota de Manutenção", "Criar Ordem de Manutenção"])
     st.info(f"[Placeholder] Manutenção → {submenu}")
+elif menu_topo == "Relatórios":
+    st.sidebar.header("🛠️ Relatório de horas")
+    submenu = st.sidebar.radio("Horas:", ["Criar Calendário de horas", "Calendáro e liquidação", "Ajustes"])
+    st.info(f"[Placeholder] Relatórios → {submenu}")
