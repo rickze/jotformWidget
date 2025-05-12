@@ -10,7 +10,7 @@ if "page_configured" not in st.session_state:
 menu_topo = option_menu(
     menu_title=None,
     options=["Home", "Equipamentos", "Destinatários", "Manutenção", "Relatórios"],
-    icons=["house", "truck", "building", "wrench", "report"],
+    icons=["house", "truck", "building", "wrench", "document"],
     orientation="horizontal"
 )
 
